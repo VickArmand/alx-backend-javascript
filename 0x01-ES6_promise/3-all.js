@@ -11,5 +11,5 @@ In the event of an error, log Signup system offline to the console
 export default function handleProfileSignup() {
   const upload = uploadPhoto();
   const createuser = createUser();
-  Promise.all([upload, createuser]).then((res) => { console.log(res[0].body, res[1].firstName, res[1].lastName); }, () => { console.log('Signup system offline'); });
+  Promise.all([upload, createuser]).then((res) => { console.log(res[0].body, res[1].firstName, res[1].lastName); }).catch(() => { console.log('Signup system offline'); });
 }
