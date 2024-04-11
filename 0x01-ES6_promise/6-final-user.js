@@ -16,7 +16,7 @@ When the promises are all settled it should return an array with the following s
 export default function handleProfileSignup(firstName, lastName, fileName) {
   const uploadphoto = uploadPhoto(fileName);
   const signupuser = signUpUser(firstName, lastName);
-  return Promise.all([signupuser, uploadphoto]).finally(
-    (res) => [{ status: 200, value: res }],
+  return Promise.allSettled([signupuser, uploadphoto]).then(
+    (res) => [{ status: res.status, value: res }],
   );
 }
