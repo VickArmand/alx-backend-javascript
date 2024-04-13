@@ -5,5 +5,4 @@ const test = async () => {
   console.log(value);
 };
 
-import { test } from '@jest/globals';
 test();
