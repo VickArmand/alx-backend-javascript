@@ -5,5 +5,5 @@ When the Promise rejects, return an empty Error object
 For every resolution, log Got a response from the API to the console
 */
 export default function handleResponseFromAPI(promise) {
-  promise.then(() => ({ status: 200, body: 'success' })).catch(() => new Error()).finally(() => { console.log('Got a response from the API'); });
+  return promise.then(() => ({ status: 200, body: 'success' })).catch(() => new Error()).finally(() => { console.log('Got a response from the API'); });
 }
