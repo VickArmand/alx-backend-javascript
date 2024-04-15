@@ -6,5 +6,9 @@
  * every employee in every department.
  */
 export default function createIteratorObject(report) {
-  
+  const result = [];
+  Object.values(report.allEmployees).forEach((element) => {
+    element.map((value) => result.push(value));
+  });
+  return result;
 }
