@@ -7,3 +7,18 @@
  * This method should return a new object of the class.
  * Hint: Symbols in ES6
  */
+export default class Car {
+  constructor(brand, motor, color) {
+    this._brand = brand;
+    this._motor = motor;
+    this._color = color;
+  }
+
+  static get [Symbol.species]() {
+    return this;
+  }
+
+  cloneCar() {
+    return new this.constructor[Symbol.species]();
+  }
+}
