@@ -1,5 +1,5 @@
 ## ES6 data manipulation
-<h4>General Objectives<h4>
+<h4>General Objectives</h4>
 <ul>
 <li>How to use map, filter and reduce on arrays</li>
 <li>Typed arrays</li>
