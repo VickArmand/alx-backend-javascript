@@ -6,10 +6,12 @@
  * The string contains all the values of the set separated by -.
  */
 export default function cleanSet(set, startString) {
-  const results = [];
-  if (startString === '') return startString;
-  set.forEach((element) => {
-    if (element.startsWith(startString)) results.push(element.split(startString)[1]);
-  });
-  return results.join('-');
+  let res = '';
+  if (!startString || !startString.length) return res;
+  for (const el of set) {
+    if (el && el.startsWith(startString)) {
+      res += `${el.slice(startString.length)}-`;
+    }
+  }
+  return res.slice(0, res.length - 1);
 }
