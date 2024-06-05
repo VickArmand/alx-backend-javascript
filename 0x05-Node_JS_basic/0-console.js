@@ -2,5 +2,5 @@
 // that prints in STDOUT the string argument.
 const process = require('process');
 module.exports = function displayMessage (message) {
-  process.stdout.write(message);
+  process.stdout.write(`${message}\n`);
 };
