@@ -28,7 +28,7 @@ module.exports = function countStudents(path) {
       }
     });
     Object.keys(students).forEach((key) => {
-      console.log(`Number of students in ${key}. List: ${students[key].join(', ')}`);
+      console.log(`Number of students in ${key}: ${students[key].length}. List: ${students[key].join(', ')}`);
     });
   });
 };
