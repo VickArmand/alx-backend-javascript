@@ -14,11 +14,11 @@ const fs = require('fs');
 module.exports = function countStudents(path) {
   try {
     const data = fs.readFileSync(path, 'utf-8');
-    const contents = data.toString().split('\n');
+    const contents = data.split('\n');
     console.log(`Number of students: ${contents.length - 1}`);
     const students = {};
     for (let i = 1; i < contents.length; i += 1) {
-      const row = contents[i].toString().split(',');
+      const row = contents[i].split(',');
       students[row[3]] = [];
     }
     contents.forEach((content) => {
