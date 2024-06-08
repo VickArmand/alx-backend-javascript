@@ -16,7 +16,7 @@ const filename = process.argv[2];
 function countStudents(path) {
   return new Promise((resolve, reject) => {
     fs.readFile(path, 'utf-8', (err, data) => {
-      if (err) reject(Error('Cannot load the database'));
+      if (err) reject('Cannot load the database');
       else {
         const contents = data.split('\n');
         const output = [];
