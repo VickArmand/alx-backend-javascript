@@ -9,12 +9,26 @@
  * Number of students in FIELD: 6. List: LIST_OF_FIRSTNAMES
  * CSV file can contain empty lines (at the end) - and they are not a valid student!
  */
-const fs = require('fs')
+const fs = require('fs');
 
 module.exports = function countStudents(path) {
   fs.readFile(path, 'utf-8', (err, data) => {
-    if (err)
-        throw Error('Cannot load the database')
-    console.log('Number of students: '+ data)
+    if (err) throw new Error('Cannot load the database');
+    const contents = data.split('\n');
+    console.log(`Number of students: ${contents.length - 1}`);
+    const students = {};
+    for (let i = 1; i < contents.length; i += 1) {
+      const row = contents[i].split(',');
+      students[row[3]] = [];
+    }
+    contents.forEach((content) => {
+      const row = content.split(',');
+      if (row[3] in students) {
+        students[row[3]].push(row[0]);
+      }
+    });
+    Object.keys(students).forEach((key) => {
+      console.log(`Number of students in ${key}: ${students[key].join(', ')}`);
+    });
   });
-}
+};
