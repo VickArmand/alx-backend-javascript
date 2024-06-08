@@ -12,7 +12,6 @@
  * CSV file can contain empty lines (at the end) - and they are not a valid student!
  */
 const fs = require('fs');
-const { resolve } = require('path');
 
 module.exports = function countStudents(path) {
   return new Promise((resolve, reject) => {
