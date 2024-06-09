@@ -3,7 +3,7 @@
  * calculateNumber function
  */
 const expect = require('chai').expect;
-const calculateNumber = require('./1-calcul.js');
+const calculateNumber = require('./2-calcul_chai');
 
 describe('sum-test-with-type', () => {
   it('positive-numbers', () => {
