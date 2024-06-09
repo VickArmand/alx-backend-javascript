@@ -21,13 +21,13 @@ describe('sum-test-with-type', () => {
 });
 describe('subtract-test-with-type', () => {
   it('positive-numbers', () => {
-    assert.equal(calculateNumber('SUBTRACT', 2.5, 3.5), 1);
+    assert.equal(calculateNumber('SUBTRACT', 2.5, 3.5), -1);
   });
   it('positive-numbers-2', () => {
-    assert.equal(calculateNumber('SUBTRACT', 2.1, 8.4), 6);
+    assert.equal(calculateNumber('SUBTRACT', 2.1, 8.4), -6);
   });
   it('negative-numbers', () => {
-    assert.equal(calculateNumber('SUBTRACT', -3.5, -2.5), 1);
+    assert.equal(calculateNumber('SUBTRACT', -3.5, -2.5), -1);
   });
 });
 describe('divide-test-with-type', () => {

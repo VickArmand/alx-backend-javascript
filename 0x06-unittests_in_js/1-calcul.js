@@ -9,18 +9,26 @@
  * return the string Error
  */
 module.exports = function calculateNumber(type, a, b) {
+  const a1 = Math.round(a);
+  const b1 = Math.round(b);
+  let c = 0;
   switch(type) {
     case 'SUM':
-      return (Math.round(a) + Math.round(b));
+      c = (a1 + b1);
+      break;
     case 'SUBTRACT':
-      return (Math.round(b) - Math.round(a));
+      c = a1 - b1;
+      break;
     case 'DIVIDE':
-      a1 = Math.round(a);
-      b1 = Math.round(b);
       if (b1 === 0)
-        return 'Error';
-      return a1 / b1;
+        c = 'Error';
+      else {
+        c = a1 / b1;
+      }
+      break;
     default:
-      return 'Invalid Operation';
+      c  = 'Invalid Operation';
+      break;
   }
+  return c;
 }
