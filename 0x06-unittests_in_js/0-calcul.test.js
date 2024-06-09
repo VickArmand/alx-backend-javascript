@@ -1,3 +1,7 @@
+/**
+ * this is a test file containing tests for
+ * calculateNumber function
+ */
 const assert = require('assert');
 const calculateNumber = require('./0-calcul.js');
 
