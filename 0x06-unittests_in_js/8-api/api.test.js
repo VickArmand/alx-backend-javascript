@@ -10,7 +10,7 @@ describe('api-test', () => {
   });
   it('test-response', (done) => {
     request('/', (err, res, body) => {
-      assert.equal(res.body, 'Welcome to the payment system');
+      assert.equal(body, 'Welcome to the payment system');
       done();
     });
   });
