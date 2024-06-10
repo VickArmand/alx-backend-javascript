@@ -11,7 +11,7 @@ app.get('/cart/:id', (req, res) => {
     res.end(`Payment methods for cart ${req.params.id}`);
   }
   else {
-    res.statusCode = 403;
+    res.statusCode = 404;
     res.end('Id must be int');
   }
 });

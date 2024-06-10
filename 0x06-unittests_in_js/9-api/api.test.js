@@ -4,7 +4,7 @@ const assert = require('assert');
 describe('api-test-param', () => {
   it('id is not a number', (done) => {
     request('http://localhost:7865/cart/joe', (err, res, body) => {
-      assert.equal(res.statusCode, 403);
+      assert.equal(res.statusCode, 404);
       assert.equal(body, 'Id must be int');
       done();
     });
