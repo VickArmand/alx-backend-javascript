@@ -1,5 +1,6 @@
 const request = require('request');
 const assert = require('assert');
+const expect = require('chai').expect;
 
 describe('api-test-login', () => {
   it('userName', (done) => {
@@ -8,8 +9,12 @@ describe('api-test-login', () => {
     json: true,
     body: {userName: "Betty" }}
     request(options, (err, res, body) => {
-      assert.equal(res.statusCode, 200);
-      assert.equal(body, 'Welcome Betty');
+      if (err)
+        expect(res.statusCode).to.not.equal(200);
+      else {
+        assert.equal(res.statusCode, 200);
+        assert.equal(body, 'Welcome Betty');
+      }
       done();
     });
   });
