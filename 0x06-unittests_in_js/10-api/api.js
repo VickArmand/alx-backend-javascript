@@ -26,6 +26,7 @@ app.get('/available_payments', (req, res) => {
   res.end(response);
 });
 app.post('/login', (req, res) => {
+  console.log(req)
   const username = req.body.userName
   if (username) {
     res.statusCode = 200;

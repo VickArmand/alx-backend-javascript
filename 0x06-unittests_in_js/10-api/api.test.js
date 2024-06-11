@@ -3,7 +3,11 @@ const assert = require('assert');
 
 describe('api-test-login', () => {
   it('userName', (done) => {
-    request('http://localhost:7865/login', { method: "POST", userName: "Betty" }, (err, res, body) => {
+    const options = { url: 'http://localhost:7865/login',
+    method: "POST",
+    json: true,
+    body: {userName: "Betty" }}
+    request(options, (err, res, body) => {
       assert.equal(res.statusCode, 200);
       assert.equal(body, 'Welcome Betty');
       done();
@@ -33,8 +37,6 @@ describe('api-test-param', () => {
       done();
     });
   });
-});
-describe('api-test', () => {
   it('id is a number', (done) => {
     request('http://localhost:7865/cart/22', (err, res, body) => {
       assert.equal(body, 'Payment methods for cart 22');
@@ -43,7 +45,6 @@ describe('api-test', () => {
   });
 });
 });
-
 describe('api-test-code', () => {
   it('test-status-code', (done) => {
     request('http://localhost:7865/', (err, res, body) => {
@@ -51,8 +52,6 @@ describe('api-test-code', () => {
       done();
     });
   });
-});
-describe('api-test-response', () => {
   it('test-response', (done) => {
     request('http://localhost:7865/', (err, res, body) => {
     assert.equal(body, 'Welcome to the payment system');
