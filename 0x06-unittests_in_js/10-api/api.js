@@ -31,8 +31,7 @@ app.post('/login', (req, res) => {
     res.statusCode = 200;
     res.send(`Welcome ${username}`);
   }
-  res.statusCode = 403;
-  res.end();
+  res.status(404).send();
 });
 app.listen(7865);
 console.log('API available on localhost port 7865');
