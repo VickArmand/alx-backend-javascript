@@ -25,6 +25,7 @@ app.get('/available_payments', (req, res) => {
   });
   res.end(response);
 });
+app.use(express.json());
 app.post('/login', (req, res) => {
   const username = req.body.userName
   if (username) {
