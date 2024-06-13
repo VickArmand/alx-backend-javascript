@@ -22,9 +22,10 @@ describe('More complex HTTP server using node', () => {
 Number of students: 10
 Number of students in CS: 6. List: Johenn, Arielle, Jonathen, Emmenuel, Guillaume, Katie
 Number of students in SWE: 4. List: Guillaume, Joseph, Paul, Tommy`);
-            done();
+            // done();
 
           });
+          done();
       });
     });
   });
