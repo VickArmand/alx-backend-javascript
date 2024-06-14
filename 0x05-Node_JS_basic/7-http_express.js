@@ -54,8 +54,8 @@ app.get('/', (req, res) => {
 app.get('/students', (req, res) => {
   res.status(200);
   res.setHeader('Content-Type', 'text/html');
+  res.write('This is the list of our students\n');
   countStudents(filename).then((output) => {
-    res.write('This is the list of our students\n');
     res.end(output.join('\n'));
   }).catch(() => {
     res.end('Cannot load the database');

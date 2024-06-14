@@ -53,9 +53,9 @@ const app = http.createServer((request, response) => {
       response.end('Hello Holberton School!');
       break;
     case '/students':
+      response.write('This is the list of our students\n');
       countStudents(filename).then((output) => {
         response.writeHead(200);
-        response.write('This is the list of our students\n');
         response.end(output.join('\n'));
       }).catch(() => {
         response.writeHead(404);
