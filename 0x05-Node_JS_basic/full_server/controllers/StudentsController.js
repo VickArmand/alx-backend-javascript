@@ -49,16 +49,14 @@ module.exports = class StudentsController {
   */
   static getAllStudentsByMajor(request, response) {
     readDatabase(filename).then((results) => {
-      const output = [];
       const key = request.params.major;
       if (key === 'CS' || key === 'SWE') {
         response.statusCode = 200;
-        output.push(`List: ${results[key].join(', ')}`);
+        response.end(`List: ${results[key].join(', ')}`);
       } else {
         response.statusCode = 500;
         response.end('Major parameter must be CS or SWE');
       }
-      response.end(output.join('\n'));
     }).catch(() => {
       response.statusCode = 500;
       response.end('Cannot load the database');
