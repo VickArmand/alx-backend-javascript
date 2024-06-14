@@ -19,14 +19,18 @@ function countStudents(path) {
     fs.readFile(path, 'utf-8', (err, data) => {
       if (err) reject(err);
       else {
-        const contents = data.split('\n');
         const output = [];
-        output.push(`Number of students: ${contents.length - 1}`);
+        const contents = data.toString().split('\n');
+        let length = 0;
         const students = {};
         for (let i = 1; i < contents.length; i += 1) {
-          const row = contents[i].split(',');
-          students[row[3]] = [];
+          if (contents[i]) {
+            const row = contents[i].toString().split(',');
+            students[row[3]] = [];
+            length += 1;
+          }
         }
+        output.push(`Number of students: ${length}`);
         contents.forEach((content) => {
           const row = content.split(',');
           if (row[3] in students) {
