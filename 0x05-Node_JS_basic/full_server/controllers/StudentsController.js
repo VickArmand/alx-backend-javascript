@@ -53,7 +53,6 @@ module.exports = class StudentsController {
       const key = request.params.major;
       if (key === 'CS' || key === 'SWE') {
         response.statusCode = 200;
-        response.write('This is the list of our students\n');
         output.push(`List: ${results[key].join(', ')}`);
       } else {
         response.statusCode = 500;

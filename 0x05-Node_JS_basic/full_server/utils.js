@@ -13,11 +13,13 @@ module.exports = function readDatabase(filename) {
     fs.readFile(filename, 'utf-8', (err, data) => {
       if (err) reject(err);
       else {
-        const contents = data.split('\n');
+        const contents = data.toString().split('\n');
         const students = {};
         for (let i = 1; i < contents.length; i += 1) {
-          const row = contents[i].split(',');
-          students[row[3]] = [];
+          if (contents[i]) {
+            const row = contents[i].toString().split(',');
+            students[row[3]] = [];
+          }
         }
         contents.forEach((content) => {
           const row = content.split(',');
