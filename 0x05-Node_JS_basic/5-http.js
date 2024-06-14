@@ -53,12 +53,12 @@ const app = http.createServer((request, response) => {
       response.end('Hello Holberton School!');
       break;
     case '/students':
+      response.statusCode = 200;
       response.write('This is the list of our students\n');
       countStudents(filename).then((output) => {
-        response.writeHead(200);
         response.end(output.join('\n'));
       }).catch(() => {
-        response.writeHead(404);
+        response.statusCode = 404;
         response.end('Cannot load the database');
       });
       break;
