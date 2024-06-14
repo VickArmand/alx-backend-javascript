@@ -60,6 +60,6 @@ module.exports = class StudentsController {
     }).catch(() => {
       response.statusCode = 500;
       response.end('Cannot load the database');
-    }).finally(() => response);
+    });
   }
 };

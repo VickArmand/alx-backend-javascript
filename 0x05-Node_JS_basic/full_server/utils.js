@@ -16,13 +16,13 @@ module.exports = function readDatabase(filename) {
         const contents = data.toString().split('\n');
         const students = {};
         for (let i = 1; i < contents.length; i += 1) {
-          if (contents[i]) {
+          if (contents[i].length > 0) {
             const row = contents[i].toString().split(',');
             students[row[3]] = [];
           }
         }
         contents.forEach((content) => {
-          const row = content.split(',');
+          const row = content.toString().split(',');
           if (row[3] in students) {
             students[row[3]].push(row[0]);
           }
